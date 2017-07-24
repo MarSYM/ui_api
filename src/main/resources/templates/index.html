@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Test</title>
+    <link th:if="${mode == 'development'}" rel="stylesheet" href="../static/bootstrap.css" th:href="@{/bootstrap.css}" />
+    <link th:if="${mode == 'production'}" rel="stylesheet" href="../static/bootstrap.min.css" th:href="@{/bootstrap.min.css}" />
+    <script type="text/javascript" src="/static/angular.min.js" th:src="@{/angular.min.js}"></script>
+   
+    <script type="text/javascript" src="/static/app/testController.js" th:src="@{/app/testController.js}"></script>
+</head>
+<body>
+
+<div ng-app="myApp" ng-controller="Controller as vm">
+    <h1>Hi</h1>
+    <button type="button" ng-click="controllerFunction()" class="btn btn-default">ctrlFunc</button>
+    
+    {{output}}
+    <table class="table">
+                <thead>
+                <tr>
+                    <th>NAME</th>
+                    <th>PRICE</th>
+                    
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="aaa in list">
+                    <td>{{aaa.name}}</td>
+                    <td>{{aaa.price}}</td>
+                </tr>
+                </tbody>
+            </table>
+    <table class="table">
+                <thead>
+                <tr>
+                    <th>NAME2</th>
+                    <th>PRICE2</th>
+                    
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="bbb in data">
+                    <td>{{bbb.zzz}}</td>
+                    <td>{{bbb.xxx}}</td>
+                </tr>
+                <tr ng-repeat="sss in vm.aa">
+                    <td>{{sss}}</td>
+                   
+                </tr>
+                </tbody>
+            </table>
+    
+</div>
+</body>
+</html>
